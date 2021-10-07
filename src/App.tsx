@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import BackToTop from "components/BackToTop";
 import Gallery from "layout/Gallery";
+import Hero from "layout/Hero";
 
 function App() {
   return (
@@ -8,9 +9,10 @@ function App() {
       <BrowserRouter>
         <BackToTop />
         <div className="main-content">
+          <Hero />
           <Switch>
             <Route exact path="/">
-              <Gallery />
+              {/* <Gallery /> */}
             </Route>
             <Redirect from="*" to="/" />
           </Switch>
