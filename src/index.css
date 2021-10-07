@@ -15,5 +15,47 @@ code {
   background-position: center 0;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 100vh;
+}
+
+.gallery div {
+  position: relative;
+  justify-self: center;
+  width: 400px;
+}
+
+.gallery .overlay {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.2;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  column-gap: 10px;
+  grid-auto-rows: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 840px !important;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1250px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .gallery div {
+    width: 200px;
+  }
 }

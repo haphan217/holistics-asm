@@ -4,11 +4,10 @@ export type Photographer = {
 };
 export type Photo = {
   id: string;
-  width: number;
-  height: number;
   color: string;
   description: string;
   urls: {
-    regular: string;
+    small: string;
+    thumb: string;
   };
 };
