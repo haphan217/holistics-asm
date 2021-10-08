@@ -17,7 +17,7 @@ const Slide = (photo: Photo) => {
         <img src={photo.urls.regular} alt={photo.description} />
       </picture>
       <div className="content-details">
-        <h3>{photo.description || photo.alt_description}</h3> {/* eslint-disable-line camelcase */}
+        <h3>{photo.description || photo.alt_description || "untitled"}</h3> {/* eslint-disable-line camelcase */}
         <p>{photo.user.name}</p>
       </div>
     </div>
