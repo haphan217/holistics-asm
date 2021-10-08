@@ -20,10 +20,6 @@ const PhotoCard = ({ photo, openModalAtIdx, lastPhotoRef }: Props) => {
     imgRef.current?.addEventListener("load", getSpans);
   }, []);
 
-  useEffect(() => {
-    console.log(spans);
-  }, [spans]);
-
   return (
     <div
       ref={lastPhotoRef}

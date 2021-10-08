@@ -72,15 +72,10 @@ const Gallery = () => {
   return (
     <Container className="pb-5">
       {/* <Context.Provider value={{ startIdx: carouselStartIdx }}> */}
-      <Modal
-        size="lg"
-        isOpen={modal}
-        className="custom-modal"
-        external={externalCloseBtn}
-        toggle={() => setModal(!modal)}
-      >
+      <Modal isOpen={modal} className="custom-modal" external={externalCloseBtn} toggle={() => setModal(!modal)}>
         <ModalBody>
-          <Carousel photos={photos} startIdx={carouselStartIdx} />
+          {/* <Carousel photos={photos} startIdx={carouselStartIdx} /> */}
+          <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjU4MTd8MHwxfHNlYXJjaHwxfHxzY3VscHR1cmV8ZW58MHx8fHwxNjMzNjcyMzAy&ixlib=rb-1.2.1&q=80&w=1080" />
         </ModalBody>
       </Modal>
       <div className="gallery">
