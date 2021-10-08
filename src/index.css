@@ -51,19 +51,20 @@ code {
 }
 
 .gallery .overlay {
-  background-color: white;
+  background: url("/src/assets/img/grain.png");
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  opacity: 0.2;
+  opacity: 0.5;
+  filter: brightness(0.75);
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .gallery .photo-wrapper:hover .overlay {
-  background-color: var(--hot-pink);
+  background: var(--hot-pink);
   opacity: 0.6;
 }
 
