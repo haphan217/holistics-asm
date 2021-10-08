@@ -25,6 +25,7 @@ code {
   background-position: center 0;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 
 .gallery div {
@@ -131,6 +132,8 @@ code {
   font-weight: 500;
   margin-bottom: 0.5em;
   text-transform: uppercase;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .content-details p {
@@ -156,12 +159,6 @@ code {
   height: 100px;
 }
 
-@media screen and (max-width: 480px) {
-  .custom-thumb img {
-    height: 50px;
-  }
-}
-
 .custom-modal .modal-content {
   background-color: transparent;
   border: none;
@@ -178,4 +175,15 @@ code {
   overflow: hidden;
   outline: none;
   font-size: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+  .custom-modal.modal-dialog {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .custom-thumb img {
+    height: 50px;
+  }
 }

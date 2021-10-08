@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useRef } from "react";
 import { getPhotos } from "services/galleryService";
 import { Photo } from "utils/Types";
 import { Modal, ModalBody, Container } from "reactstrap";
@@ -38,6 +38,18 @@ const Gallery = () => {
       &times;
     </button>
   );
+
+  // useEffect(() => {
+  //   if (modal) {
+  //     document.documentElement.scrollTop = 0;
+  //     if (document.scrollingElement) {
+  //       document.scrollingElement.scrollTop = 0;
+  //     }
+  //     if (modalRef.current) {
+  //       modalRef.current.scrollTop = 0;
+  //     }
+  //   }
+  // }, [modal]);
 
   return (
     <Container>
