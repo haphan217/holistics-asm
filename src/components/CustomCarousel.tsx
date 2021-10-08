@@ -23,8 +23,8 @@ interface SlideProps {
 
 const CarouselController = ({ direction, moveSlide }: ControllerProps) => {
   return (
-    <button className={`btn-outline slide-btn ${direction}`}>
-      <i className={`fas fa-2x fa-caret-${direction}`} onClick={moveSlide} />
+    <button className={`btn-outline slide-btn ${direction}`} onClick={moveSlide}>
+      <i className={`fas fa-2x fa-caret-${direction}`} />
     </button>
   );
 };
@@ -58,6 +58,11 @@ const CustomCarousel = ({ startIdx, photos }: CarouselProps) => {
       ))}
       <CarouselController moveSlide={nextSlide} direction={Direction.NEXT} />
       <CarouselController moveSlide={prevSlide} direction={Direction.PREV} />
+      <div className="content-details">
+        <h3>{photos[slideIndex - 1].description || photos[slideIndex - 1].alt_description || "untitled"}</h3>{" "}
+        {/* eslint-disable-line camelcase */}
+        <p>{photos[slideIndex - 1].user.name}</p>
+      </div>
     </div>
   );
 };
