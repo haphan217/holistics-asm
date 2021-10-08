@@ -11,7 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-family-code) !important;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
   background-image: url(https://bridge295.qodeinteractive.com/wp-content/uploads/2019/12/p1-back-img-03.jpg);
   background-position: center 0;
   background-attachment: fixed;
@@ -20,6 +19,10 @@ body {
 
 body.modal-open {
   padding: 0 !important;
+}
+
+.main-content {
+  overflow-x: hidden;
 }
 
 .text-primary {
@@ -36,6 +39,14 @@ code {
   width: 400px;
 }
 
+.photo-wrapper .skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+}
+
 .gallery .overlay {
   background-color: white;
   position: absolute;
@@ -48,7 +59,7 @@ code {
   transition: all 0.2s ease-in-out;
 }
 
-.gallery div:hover .overlay {
+.gallery .photo-wrapper:hover .overlay {
   background-color: var(--hot-pink);
   opacity: 0.6;
 }
@@ -76,7 +87,7 @@ code {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  .gallery div {
+  .gallery .photo-wrapper {
     width: 200px;
   }
 }
@@ -217,7 +228,7 @@ code {
   transition: all 0.35s ease-in-out 0s;
 }
 
-.gallery div:hover .olay-details {
+.gallery .photo-wrapper:hover .olay-details {
   top: 50%;
   left: 50%;
   opacity: 1;

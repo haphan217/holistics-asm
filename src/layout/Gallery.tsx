@@ -22,11 +22,11 @@ const Gallery = () => {
     (async () => {
       try {
         setLoading(true);
-        // const { data } = await getPhotos(page);
-        // const newList: Photo[] = data.results as Photo[];
-        // setPhotos((prevList) => {
-        //   return [...prevList, ...newList];
-        // });
+        const { data } = await getPhotos(page);
+        const newList: Photo[] = data.results as Photo[];
+        setPhotos((prevList) => {
+          return [...prevList, ...newList];
+        });
       } catch (error) {
         console.error(error);
       } finally {
@@ -70,7 +70,7 @@ const Gallery = () => {
   // }, [modal]);
 
   return (
-    <Container>
+    <Container className="pb-5">
       {/* <Context.Provider value={{ startIdx: carouselStartIdx }}> */}
       <Modal
         size="lg"
@@ -86,14 +86,19 @@ const Gallery = () => {
       <div className="gallery">
         {photos.map((photo, i) => {
           return photos.length - 1 === i ? (
-            <PhotoCard ref={lastPhotoRef} key={photo.id} photo={photo} openModalAtIdx={() => openModalAtIdx(i)} />
+            <PhotoCard
+              lastPhotoRef={lastPhotoRef}
+              key={photo.id}
+              photo={photo}
+              openModalAtIdx={() => openModalAtIdx(i)}
+            />
           ) : (
             <PhotoCard key={photo.id} photo={photo} openModalAtIdx={() => openModalAtIdx(i)} />
           );
         })}
       </div>
-      {!loading && (
-        <div className="d-flex justify-content-center">
+      {loading && (
+        <div className="d-flex justify-content-center py-3">
           <Spinner style={{ color: "#fe3e82", width: "3rem", height: "3rem" }} />
         </div>
       )}
