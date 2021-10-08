@@ -3,8 +3,7 @@ import { getPhotos } from "services/galleryService";
 import { Photo } from "utils/Types";
 import { Modal, ModalBody, Container, Spinner } from "reactstrap";
 import PhotoCard from "components/PhotoCard";
-import Carousel from "components/Carousel";
-
+import CustomCarousel from "components/CustomCarousel";
 interface ContextProps {
   startIdx: number;
 }
@@ -15,7 +14,7 @@ const Gallery = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [page, setPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-  const [carouselStartIdx, setCarouselStartIdx] = useState<number>(0);
+  const [carouselStartIdx, setCarouselStartIdx] = useState<number>(1);
   const [modal, setModal] = useState<boolean>(false);
 
   useEffect(() => {
@@ -74,8 +73,7 @@ const Gallery = () => {
       {/* <Context.Provider value={{ startIdx: carouselStartIdx }}> */}
       <Modal isOpen={modal} className="custom-modal" external={externalCloseBtn} toggle={() => setModal(!modal)}>
         <ModalBody>
-          {/* <Carousel photos={photos} startIdx={carouselStartIdx} /> */}
-          <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjU4MTd8MHwxfHNlYXJjaHwxfHxzY3VscHR1cmV8ZW58MHx8fHwxNjMzNjcyMzAy&ixlib=rb-1.2.1&q=80&w=1080" />
+          <CustomCarousel photos={photos} startIdx={carouselStartIdx} />
         </ModalBody>
       </Modal>
       <div className="gallery">
@@ -85,10 +83,10 @@ const Gallery = () => {
               lastPhotoRef={lastPhotoRef}
               key={photo.id}
               photo={photo}
-              openModalAtIdx={() => openModalAtIdx(i)}
+              openModalAtIdx={() => openModalAtIdx(i + 1)}
             />
           ) : (
-            <PhotoCard key={photo.id} photo={photo} openModalAtIdx={() => openModalAtIdx(i)} />
+            <PhotoCard key={photo.id} photo={photo} openModalAtIdx={() => openModalAtIdx(i + 1)} />
           );
         })}
       </div>

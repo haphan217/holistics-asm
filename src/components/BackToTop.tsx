@@ -25,10 +25,12 @@ const BackToTop = () => {
     window.addEventListener("scroll", toggleVisibility);
   }, []);
 
-  return (
-    <div className="float-button">
-      {isVisible && <i onClick={scrollToTop} className="fa fa-chevron-circle-up fa-3x"></i>}
+  return isVisible ? (
+    <div className="btn-outline float-button">
+      <i onClick={scrollToTop} className="fas fa-caret-up fa-2x"></i>
     </div>
+  ) : (
+    <></>
   );
 };
 

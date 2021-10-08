@@ -24,8 +24,6 @@ const Slide = (photo: Photo) => {
   );
 };
 
-//TODO: onScreenChange toggle fullscreen
-
 const Carousel = ({ photos, startIdx }: Props) => {
   // const { startIdx } = useContext(Context);
   const images = photos.map((p) => {
