@@ -33,11 +33,7 @@ const Gallery = () => {
     setCarouselStartIdx(idx);
   };
 
-  const externalCloseBtn = (
-    <button className="close-btn" onClick={() => setModal(false)}>
-      &times;
-    </button>
-  );
+  const externalCloseBtn = <i className="close-btn fas fa-lg fa-times" onClick={() => setModal(false)} role="button" />;
 
   // useEffect(() => {
   //   if (modal) {

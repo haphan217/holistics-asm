@@ -127,7 +127,7 @@ code {
 
 .float-button:hover {
   cursor: pointer;
-  color: pink;
+  color: rgb(245, 107, 167);
 }
 
 .content-details {
@@ -186,11 +186,6 @@ code {
   top: 15px;
   right: 15px;
   color: white;
-  background-color: transparent;
-  border: none;
-  overflow: hidden;
-  outline: none;
-  font-size: 2rem;
 }
 
 @media screen and (max-width: 480px) {
