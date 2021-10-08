@@ -26,6 +26,10 @@ const PhotoCard = ({ photo, openModalAtIdx }: Props) => {
         <source srcSet={photo.urls.thumb} media="(max-width: 480px)" />
         <img ref={imgRef} src={photo.urls.small} alt={photo.description} />
       </picture>
+      <div className="olay-details">
+        <h3>{photo.description || photo.alt_description}</h3> {/* eslint-disable-line camelcase */}
+        <p>{photo.user.name}</p>
+      </div>
     </div>
   );
 };
