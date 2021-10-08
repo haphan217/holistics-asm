@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Photo } from "utils/Types";
 
-const PhotoCard = ({ photo }: { photo: Photo }) => {
+interface Props {
+  photo: Photo;
+  openModalAtIdx: () => void;
+}
+
+const PhotoCard = ({ photo, openModalAtIdx }: Props) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const [spans, setSpans] = useState<number>(0);
 
@@ -15,7 +20,7 @@ const PhotoCard = ({ photo }: { photo: Photo }) => {
   }, []);
 
   return (
-    <div key={photo.id} style={{ gridRowEnd: `span ${spans}` }}>
+    <div key={photo.id} style={{ gridRowEnd: `span ${spans}` }} onClick={openModalAtIdx} role="button">
       <div className="overlay" style={{ height: imgRef.current?.clientHeight }}></div>
       <picture>
         <source srcSet={photo.urls.thumb} media="(max-width: 480px)" />

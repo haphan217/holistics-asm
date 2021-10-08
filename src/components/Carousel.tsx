@@ -1,9 +1,10 @@
+import { Context } from "layout/Gallery";
+import { useContext } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { Modal, ModalBody, Button } from "reactstrap";
 import { Photo } from "utils/Types";
-
 interface Props {
+  startIdx: number;
   photos: Photo[];
 }
 
@@ -23,7 +24,10 @@ const Slide = (photo: Photo) => {
   );
 };
 
-const Carousel = ({ photos }: Props) => {
+//TODO: onScreenChange toggle fullscreen
+
+const Carousel = ({ photos, startIdx }: Props) => {
+  // const { startIdx } = useContext(Context);
   const images = photos.map((p) => {
     return {
       original: p.urls.small,
@@ -32,21 +36,7 @@ const Carousel = ({ photos }: Props) => {
       renderItem: () => Slide(p),
     };
   });
-  const toggle = () => {
-    return 1;
-  };
-  const externalCloseBtn = (
-    <button className="close-btn" onClick={toggle}>
-      &times;
-    </button>
-  );
-  return (
-    <Modal size="lg" isOpen className="custom-modal" external={externalCloseBtn}>
-      <ModalBody>
-        <ImageGallery showPlayButton={false} items={images} />
-      </ModalBody>
-    </Modal>
-  );
+  return <ImageGallery startIndex={startIdx} showPlayButton={false} items={images} />;
 };
 
 export default Carousel;
