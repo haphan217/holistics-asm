@@ -71,7 +71,7 @@ code {
   -ms-transform: rotate(20deg); /* IE 9 */
   transform: rotate(20deg);
   top: 25%;
-  left: -5%;
+  left: -10%;
 }
 
 .hero-frame > rect {
@@ -100,4 +100,78 @@ code {
 .hero-name:hover {
   transform: skewX(25deg);
   -webkit-transform: skewX(25deg);
+}
+
+.float-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 3000;
+  text-align: center;
+  color: var(--hot-pink);
+}
+
+.float-button:hover {
+  cursor: pointer;
+  color: pink;
+}
+
+.content-details {
+  padding: 1rem;
+  background-color: black;
+  opacity: 0.9;
+}
+
+.content-details h3 {
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.content-details p {
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.content-image {
+  /* width: 100%; */
+  max-height: 69vh;
+  display: flex;
+  justify-content: center;
+}
+.content-image img {
+  object-fit: contain;
+  height: auto;
+  width: 100%;
+}
+.custom-thumb {
+  width: auto !important;
+}
+.custom-thumb img {
+  height: 100px;
+}
+
+@media screen and (max-width: 480px) {
+  .custom-thumb img {
+    height: 50px;
+  }
+}
+
+.custom-modal .modal-content {
+  background-color: transparent;
+  border: none;
+  height: 80vh;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  font-size: 2rem;
 }

@@ -7,7 +7,6 @@ const PhotoCard = ({ photo }: { photo: Photo }) => {
 
   const getSpans = () => {
     const height = imgRef.current?.clientHeight || 1;
-    console.log(height);
     setSpans(Math.round(height / 10) + 1);
   };
 

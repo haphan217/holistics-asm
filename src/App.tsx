@@ -12,7 +12,7 @@ function App() {
           <Hero />
           <Switch>
             <Route exact path="/">
-              {/* <Gallery /> */}
+              <Gallery />
             </Route>
             <Redirect from="*" to="/" />
           </Switch>

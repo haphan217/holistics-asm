@@ -3,6 +3,7 @@ import { getPhotos } from "services/galleryService";
 import { Photo } from "utils/Types";
 import { Container } from "reactstrap";
 import PhotoCard from "components/PhotoCard";
+import Carousel from "components/Carousel";
 
 const Gallery = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -20,11 +21,12 @@ const Gallery = () => {
   }, []);
   return (
     <Container>
-      <div className="gallery">
+      <Carousel photos={photos} />
+      {/* <div className="gallery">
         {photos.map((photo) => (
           <PhotoCard key={photo.id} photo={photo} />
         ))}
-      </div>
+      </div> */}
     </Container>
   );
 };

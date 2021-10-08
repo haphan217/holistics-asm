@@ -2231,6 +2231,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-image-gallery@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react-image-gallery/-/react-image-gallery-1.0.5.tgz#563234ac0fa131e2920199d191fca0c1594ba29d"
+  integrity sha512-CjIjFXmV7zGRO/FkdtPK31Rwj0ud7Xz/9e5o4DCX2Lx96jR8+0xCmKeUAQQVN3pKc6jUjOC0f/aEylhKg8vhAw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-router-dom@^5.1.7":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.1.tgz#76700ccce6529413ec723024b71f01fc77a4a980"
@@ -2246,6 +2253,13 @@
   integrity sha512-RNSXOyb3VyRs/EOGmjBhhGKTbnN6fHWvy5FNLzWfOWOGjgVUKqJZXfpKzLmgoU8h6Hj8mpALj/mbXQASOb92wQ==
   dependencies:
     "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react-slick@^0.23.6":
+  version "0.23.6"
+  resolved "https://registry.yarnpkg.com/@types/react-slick/-/react-slick-0.23.6.tgz#d9e7e2cfc6f250da3db2d74c54dc7f1e8bb7ceb4"
+  integrity sha512-dSsiEWatKtI5HvmCmE3g5chAaMMosR9krZwtMryXeDuKSgFxzgtH1wh4+QqXT9Eq87HJ948w6vFKD0loc9X26Q==
+  dependencies:
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^17.0.0":
@@ -10432,6 +10446,11 @@ react-error-overlay@^6.0.9:
   version "6.0.9"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.9.tgz#3c743010c9359608c375ecd6bc76f35d93995b0a"
   integrity sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
+
+react-image-gallery@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/react-image-gallery/-/react-image-gallery-1.2.7.tgz#2dfb83c52f32828a5340ca565f91bca58241fcfe"
+  integrity sha512-ts7yMWykvZhslGMuvVAUk7a1dJIx9QtIwK6Clv8dOGxPsJid92FRrLvXbZDvkYcUyj48sHalnBhqU6mZNCB2jg==
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
