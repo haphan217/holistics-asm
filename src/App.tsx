@@ -16,9 +16,9 @@ function App() {
             </Route>
             <Redirect from="*" to="/" />
           </Switch>
-          <Footer />
         </div>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

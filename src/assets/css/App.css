@@ -23,6 +23,7 @@ body.modal-open {
 
 .main-content {
   overflow-x: hidden;
+  min-height: 95vh;
 }
 
 .text-primary {
