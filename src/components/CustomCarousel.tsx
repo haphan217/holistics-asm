@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Photo } from "utils/Types";
-useState;
+import { useSwipeable } from "react-swipeable";
+
 enum Direction {
   NEXT = "right",
   PREV = "left",
@@ -51,17 +52,25 @@ const CustomCarousel = ({ startIdx, photos }: CarouselProps) => {
   const prevSlide = () => {
     slideIndex === 1 ? setSlideIndex(photos.length) : setSlideIndex(slideIndex - 1);
   };
+
+  const swipeHandler = useSwipeable({
+    onSwipedLeft: () => prevSlide(),
+    onSwipedRight: () => nextSlide(),
+  });
+
   return (
-    <div className="slider-container">
-      {photos.map((photo, idx) => (
-        <Slide photo={photo} active={slideIndex === idx + 1} key={photo.id} />
-      ))}
-      <CarouselController moveSlide={nextSlide} direction={Direction.NEXT} />
-      <CarouselController moveSlide={prevSlide} direction={Direction.PREV} />
-      <div className="content-details">
-        <h3>{photos[slideIndex - 1].description || photos[slideIndex - 1].alt_description || "untitled"}</h3>{" "}
-        {/* eslint-disable-line camelcase */}
-        <p>{photos[slideIndex - 1].user.name}</p>
+    <div {...swipeHandler}>
+      <div className="slider-container">
+        {photos.map((photo, idx) => (
+          <Slide photo={photo} active={slideIndex === idx + 1} key={photo.id} />
+        ))}
+        <CarouselController moveSlide={nextSlide} direction={Direction.NEXT} />
+        <CarouselController moveSlide={prevSlide} direction={Direction.PREV} />
+        <div className="content-details">
+          <h3>{photos[slideIndex - 1].description || photos[slideIndex - 1].alt_description || "untitled"}</h3>{" "}
+          {/* eslint-disable-line camelcase */}
+          <p>{photos[slideIndex - 1].user.name}</p>
+        </div>
       </div>
     </div>
   );
