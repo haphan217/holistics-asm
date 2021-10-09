@@ -34,7 +34,7 @@ const Slide = ({ photo, active }: SlideProps) => {
     <div className={active ? "slider-item active" : "slider-item"}>
       <picture className="content-image">
         {/* <source srcSet={photo.urls.small} media="(max-width: 480px)" /> */}
-        <source srcSet={photo.urls.small} media="(max-width: 1024px)" />
+        <source srcSet={photo.urls.small} media="(max-width: 688px)" />
         <img src={photo.urls.regular} alt={photo.description} />
       </picture>
     </div>

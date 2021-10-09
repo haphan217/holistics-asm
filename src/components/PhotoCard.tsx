@@ -31,7 +31,8 @@ const PhotoCard = ({ photo, openModalAtIdx, lastPhotoRef }: Props) => {
       {spans === 0 && <div className="skeleton" style={{ backgroundColor: photo.color }} />}
       <div className="overlay" style={{ height: imgRef.current?.clientHeight || 300 }}></div>
       <picture>
-        <source srcSet={photo.urls.thumb} media="(max-width: 480px)" />
+        <source srcSet={photo.urls.small} media="(max-width: 480px)" />
+        <source srcSet={photo.urls.regular} media="(max-width: 992px)" />
         <img ref={imgRef} src={photo.urls.small} alt={photo.description} />
       </picture>
 
