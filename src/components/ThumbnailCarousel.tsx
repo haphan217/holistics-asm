@@ -36,7 +36,6 @@ const ThumbnailCarousel = ({ setSlideIndex, photos, slideIndex }: ThumbnailCarou
   }, [slideIndex]);
 
   const onThumbnailClick = (event: any, index: number) => {
-    // blur element to remove outline cause by focus
     event.target.parentNode.parentNode.blur();
     setSlideIndex(index);
   };

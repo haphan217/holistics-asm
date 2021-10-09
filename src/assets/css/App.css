@@ -376,6 +376,12 @@ code {
   align-items: center;
   border: 2px solid transparent;
   transition: border 0.3s ease-out;
+
+  animation: fadeIn linear 0.7s;
+  -webkit-animation: fadeIn linear 0.7s;
+  -moz-animation: fadeIn linear 0.7s;
+  -o-animation: fadeIn linear 0.7s;
+  -ms-animation: fadeIn linear 0.7s;
 }
 
 .image-gallery-thumbnail-image {
@@ -387,6 +393,51 @@ code {
 .image-gallery-thumbnail.active,
 .image-gallery-thumbnail:hover {
   border: 2px solid var(--hot-pink);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .thumb-btn {
