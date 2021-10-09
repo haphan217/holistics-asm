@@ -33,6 +33,13 @@ code {
   font-family: var(--font-family-code);
 }
 
+.copyright {
+  float: right;
+  padding-right: 15px;
+  font-size: 0.8571em;
+  line-height: 1.8;
+}
+
 /* GALLERY */
 .gallery .photo-wrapper {
   position: relative;
