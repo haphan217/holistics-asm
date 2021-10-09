@@ -14,7 +14,7 @@ body {
   background-image: url(https://bridge295.qodeinteractive.com/wp-content/uploads/2019/12/p1-back-img-03.jpg);
   background-position: center 0;
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
 }
 
 body.modal-open {
