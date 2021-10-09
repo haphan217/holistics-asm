@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+# Simple photo gallery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This website is a simple gallery of photos from [Unsplash](https://unsplash.com/).
+## Main features
 
-## Available Scripts
+### 1. Masonry grid
+To persist the original aspect ratio, photos are arranged in masonry grid by the following approach:
+- Implement css grid  (`grid-template-column` and `grid-auto-row`) to dynamically distribute photos into columns.
+- After the photo is loaded, a callback function will get the height of the photo and calculate the number of rows that the photo spans.
+- Use `<picture>` element for more flexibility in specifying image resources
+### 2. Infinite scroll
+Utilize **Intersection Observer API** to simulate infinite scrolling.
 
-In the project directory, you can run:
+-  Assign a reference to the last photo of the gallery. Initialize an Intersection observer to observe it.
+- Once the last photo intersects the view port (be visible on screen), it triggers the gallery to fetch more photos.
+- When the list of photos is updated, the observer disconnects with the previous last photo and starts observing the current last photo.
 
-### `yarn start`
+### 3. Carousel
+This component consists of two child components. A main carousel displays photo in large size and a slider displays some thumbnail photos. The swipe event on both components are managed by the `react-swipeable` library.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Main carousel**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The photos are stacked upon each other but only the `active` photo is visible.
 
-### `yarn test`
+- **Thumbnail slider**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There are 5 thumbnail photos showed at a time. The states of the current visible photo in the main carousel are passed down to the thumbnail slider, so the activities on both components stay connected.
 
-### `yarn build`
+## Limitations
+1. Carousel behaviors
+- The photos are fade in/out when navigating, which don't simulate the "sliding" feeling.
+- When user is at the last photo of the carousel, clicking next button will take they back to the first photo. It should instead fetch more photos and update the gallery.
+2. Responsiveness
+- Since the number of row spans of the photo is set on its first load, changing the screen size from large -> small -> large will result incorrect span. I can explain further in the follow-up discussion.
+- The responsive layout for small screen size is not guaranteed :D
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deployed site
+The static website is hosted on Amazon S3 and served through a Cloudfront distribution.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Let's go!](https://d3bxcmfcz1niap.cloudfront.net)
