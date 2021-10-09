@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Photo } from "utils/Types";
 import { useSwipeable } from "react-swipeable";
 
@@ -27,6 +27,13 @@ const ThumbnailCarousel = ({ setSlideIndex, photos, slideIndex }: ThumbnailCarou
   const startOfThumb = slideIndex - 1 - ((slideIndex - 1) % 5);
   const thumbIdx = [1, 2, 3, 4, 5];
   const [currentThumbs, setCurrentThumbs] = useState<number[]>(thumbIdx.map((n) => n + startOfThumb));
+
+  useEffect(() => {
+    const goTo = slideIndex - 1 - ((slideIndex - 1) % 5);
+    if (!currentThumbs.includes(slideIndex)) {
+      setCurrentThumbs(thumbIdx.map((n) => n + goTo));
+    }
+  }, [slideIndex]);
 
   const onThumbnailClick = (event: any, index: number) => {
     // blur element to remove outline cause by focus

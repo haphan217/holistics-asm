@@ -73,8 +73,24 @@ code {
   transition: all 0.2s ease-in-out;
 }
 
+.slider-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
 .gallery .photo-wrapper:hover .overlay {
   background: var(--hot-pink);
+  opacity: 0.6;
+}
+
+.slider-container:hover .slider-item.active .overlay {
+  background: #000;
   opacity: 0.6;
 }
 
@@ -132,10 +148,26 @@ code {
   transition: all 0.35s ease-in-out 0s;
 }
 
-.gallery .photo-wrapper:hover .olay-details {
+.gallery .photo-wrapper:hover .olay-details,
+.slider-container:hover .slider-item.active .olay-details {
   top: 50%;
   left: 50%;
   opacity: 1;
+}
+.slider-item .olay-sm-details {
+  display: none;
+}
+@media (max-width: 996px) {
+  .slider-item .overlay,
+  .slider-item .olay-details {
+    display: none;
+  }
+  .slider-item .olay-sm-details {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    position: absolute;
+  }
 }
 
 /* HERO */
@@ -216,21 +248,10 @@ code {
   padding-bottom: 0.3rem;
 }
 
-.content-details {
-  padding: 1.5rem;
-  background-color: black;
-  opacity: 0.8;
-  width: 100vw;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.content-details h3,
-.olay-details h3 {
+.olay-details h3,
+.olay-sm-details h5 {
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   word-break: break-word;
   white-space: normal;
@@ -238,13 +259,17 @@ code {
 
 .olay-details h3 {
   margin-bottom: 0.5em;
+  font-weight: 600;
 }
 
-.content-details p,
-.olay-details p {
+.olay-details p,
+.olay-sm-details p {
   color: #fff;
   font-size: 1em;
   margin-bottom: 0;
+}
+.olay-sm-details p {
+  font-size: 0.8em;
 }
 
 /* MODAL */
@@ -278,16 +303,14 @@ code {
 .slider-container {
   height: 80vh;
   position: relative;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
 }
 
 .slider-item {
-  /* width: 100%;
-  height: 100%; */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* width: 100%; */
   position: absolute;
   opacity: 0;
   transition: opacity ease-in-out 0.4s;
@@ -384,5 +407,16 @@ code {
   }
   .thumb-btn {
     margin: 10px 0.5rem 0;
+  }
+}
+@media (max-width: 996px) {
+  .thumbnail-container {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail-container {
+    margin-top: 50px;
   }
 }

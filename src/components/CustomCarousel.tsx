@@ -34,11 +34,20 @@ const CarouselController = ({ direction, moveSlide }: ControllerProps) => {
 const Slide = ({ photo, active }: SlideProps) => {
   return (
     <div className={active ? "slider-item active" : "slider-item"}>
+      <div className="overlay"></div>
       <picture className="content-image">
-        {/* <source srcSet={photo.urls.small} media="(max-width: 480px)" /> */}
         <source srcSet={photo.urls.small} media="(max-width: 688px)" />
         <img src={photo.urls.regular} alt={photo.description} />
       </picture>
+      <div className="olay-details">
+        <h3>{photo.description || photo.alt_description || "untitled"}</h3> {/* eslint-disable-line camelcase */}
+        <p>{photo.user.name}</p>
+      </div>
+      <div className="olay-sm-details">
+        <h5 className="px-3 pt-3">{photo.description || photo.alt_description || "untitled"}</h5>
+        {/* eslint-disable-line camelcase */}
+        <p className="px-3 pb-3">{photo.user.name}</p>
+      </div>
     </div>
   );
 };
