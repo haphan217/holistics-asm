@@ -162,7 +162,7 @@ code {
   .slider-item .olay-details {
     display: none;
   }
-  .slider-item .olay-sm-details {
+  .slider-item.active .olay-sm-details {
     display: block;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
@@ -191,7 +191,7 @@ code {
   transform: translateX(45%) translateY(5%);
 }
 .hero-poly > polygon {
-  fill: rgba(199, 133, 180, 0.6);
+  fill: rgba(164, 140, 242, 0.6);
 }
 .hero-flower {
   position: absolute;
@@ -389,10 +389,10 @@ code {
 }
 
 .thumb-btn {
-  margin-top: 30px;
+  background-color: transparent;
   color: whitesmoke;
-  margin: 30px 1rem 0;
-  cursor: pointer;
+  margin: 0 1rem;
+  border: none;
 }
 .thumb-btn:hover {
   color: var(--hot-pink);
@@ -406,7 +406,7 @@ code {
     height: 50px;
   }
   .thumb-btn {
-    margin: 10px 0.5rem 0;
+    margin: 0 0.5rem;
   }
 }
 @media (max-width: 996px) {

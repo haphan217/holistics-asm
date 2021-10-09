@@ -55,13 +55,15 @@ const ThumbnailCarousel = ({ setSlideIndex, photos, slideIndex }: ThumbnailCarou
   };
 
   const swipeHandler = useSwipeable({
-    onSwipedLeft: () => prevSlide(),
-    onSwipedRight: () => nextSlide(),
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
   });
 
   return (
     <div {...swipeHandler} className="thumbnail-container">
-      <i className="fas fa-2x fa-caret-left thumb-btn" onClick={prevSlide} />
+      <button className="thumb-btn" onClick={prevSlide}>
+        <i className="fas fa-2x fa-caret-left " />
+      </button>
       {currentThumbs.map((p) => (
         <Thumbnail
           key={photos[p - 1].id}
@@ -71,7 +73,9 @@ const ThumbnailCarousel = ({ setSlideIndex, photos, slideIndex }: ThumbnailCarou
           active={slideIndex === p}
         />
       ))}
-      <i className="fas fa-2x fa-caret-right thumb-btn" onClick={nextSlide} />
+      <button className="thumb-btn " onClick={nextSlide}>
+        <i className="fas fa-2x fa-caret-right" />
+      </button>
     </div>
   );
 };

@@ -64,8 +64,8 @@ const CustomCarousel = ({ startIdx, photos }: CarouselProps) => {
   };
 
   const swipeHandler = useSwipeable({
-    onSwipedLeft: () => prevSlide(),
-    onSwipedRight: () => nextSlide(),
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
   });
 
   return (
