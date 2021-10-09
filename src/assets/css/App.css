@@ -148,12 +148,26 @@ code {
 }
 
 .hero-frame > rect {
-  stroke: pink;
-  stroke-width: 10;
+  stroke: whitesmoke;
+  stroke-width: 5;
   fill: transparent;
   stroke-opacity: 0.9;
 }
-
+.hero-poly {
+  position: absolute;
+  z-index: -2;
+  transform: translateX(45%) translateY(5%);
+}
+.hero-poly > polygon {
+  fill: rgba(199, 133, 180, 0.6);
+}
+.hero-flower {
+  position: absolute;
+  z-index: -1;
+  width: 500px;
+  bottom: 0;
+  transform: translateX(-50%) rotate(120deg);
+}
 .hero-name {
   font-family: var(--font-family-prompt);
   font-weight: 800;
