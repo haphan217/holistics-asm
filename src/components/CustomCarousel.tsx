@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Photo } from "utils/Types";
 import { useSwipeable } from "react-swipeable";
+import Thumbnail from "./ThumbnailCarousel";
 
 enum Direction {
   NEXT = "right",
@@ -59,19 +60,15 @@ const CustomCarousel = ({ startIdx, photos }: CarouselProps) => {
   });
 
   return (
-    <div {...swipeHandler}>
-      <div className="slider-container">
+    <div>
+      <div {...swipeHandler} className="slider-container">
         {photos.map((photo, idx) => (
           <Slide photo={photo} active={slideIndex === idx + 1} key={photo.id} />
         ))}
         <CarouselController moveSlide={nextSlide} direction={Direction.NEXT} />
         <CarouselController moveSlide={prevSlide} direction={Direction.PREV} />
-        <div className="content-details">
-          <h3>{photos[slideIndex - 1].description || photos[slideIndex - 1].alt_description || "untitled"}</h3>{" "}
-          {/* eslint-disable-line camelcase */}
-          <p>{photos[slideIndex - 1].user.name}</p>
-        </div>
       </div>
+      <Thumbnail setSlideIndex={setSlideIndex} slideIndex={slideIndex} photos={photos} />
     </div>
   );
 };

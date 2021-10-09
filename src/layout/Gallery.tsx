@@ -71,7 +71,13 @@ const Gallery = () => {
   return (
     <Container className="pb-5">
       {/* <Context.Provider value={{ startIdx: carouselStartIdx }}> */}
-      <Modal isOpen={modal} className="custom-modal" external={externalCloseBtn} toggle={() => setModal(!modal)}>
+      <Modal
+        isOpen={modal}
+        className="custom-modal"
+        external={externalCloseBtn}
+        toggle={() => setModal(!modal)}
+        backdropClassName="custom-backdrop"
+      >
         <ModalBody>
           <CustomCarousel photos={photos} startIdx={carouselStartIdx} />
         </ModalBody>
