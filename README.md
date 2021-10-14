@@ -9,11 +9,17 @@ This website is a simple gallery of photos from [Unsplash](https://unsplash.com/
 To persist the original aspect ratio, photos are arranged in masonry grid by the following approach:
 
 - Set number of columns depends on screen size through css (`column-count`). However, the photos are distributed from top to bottom as:
+
   1 3 5
+
   2 4 6
+
 - Thus, the photos list will be sorted everytime it is updated to be distributed from left to right as:
+
   1 2 3
+
   4 5 6
+
 - Use `<picture>` element for more flexibility in specifying image resources
 
 ### 2. Infinite scroll
