@@ -9,26 +9,15 @@ interface Props {
 
 const PhotoCard = ({ photo, openModalAtIdx, lastPhotoRef }: Props) => {
   const imgRef = useRef<HTMLImageElement>(null);
-  const [spans, setSpans] = useState<number>(0);
-
-  const getSpans = () => {
-    const height = imgRef.current?.clientHeight || 1;
-    setSpans(Math.round(height / 10) + 1);
-  };
+  const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    imgRef.current?.addEventListener("load", getSpans);
+    imgRef.current?.addEventListener("load", () => setLoaded(true));
   }, []);
 
   return (
-    <div
-      ref={lastPhotoRef}
-      className="photo-wrapper"
-      style={{ gridRowEnd: `span ${spans || 31}` }}
-      onClick={openModalAtIdx}
-      role="button"
-    >
-      {spans === 0 && <div className="skeleton" style={{ backgroundColor: photo.color }} />}
+    <div ref={lastPhotoRef} className="photo-wrapper" onClick={openModalAtIdx} role="button">
+      {!loaded && <div className="skeleton" style={{ backgroundColor: photo.color }} />}
       <div className="overlay" style={{ height: imgRef.current?.clientHeight || 300 }}></div>
       <picture>
         <source srcSet={photo.urls.small} media="(max-width: 480px)" />
